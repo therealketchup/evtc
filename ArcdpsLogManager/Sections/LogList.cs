@@ -230,6 +230,16 @@ namespace GW2Scratch.ArcdpsLogManager.Sections
 				}
 			});
 
+			var uploadStatusCell = new GridColumn()
+			{
+				HeaderText = "UploadStatus",
+				DataCell = new TextBoxCell()
+				{
+					Binding = new DelegateBinding<LogData, string>(log => log.DpsReportEIUpload.UploadState.ToString())
+				}
+			};
+			gridView.Columns.Add(uploadStatusCell);
+
 			var compositionCell = new DrawableCell();
 			compositionCell.Paint += (sender, args) =>
 			{
